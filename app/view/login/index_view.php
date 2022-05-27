@@ -25,7 +25,7 @@
 
     <?php if (isset($_SESSION['err1']) && !empty($_SESSION['err1'])): ?>
         <div class="row">
-            <h3><?php echo $_SESSION['err1']; ?></h3>
+            <h3 style="color: red;"><?php echo $_SESSION['err1']; ?></h3>
         </div>
     <?php endif; ?>
       <form action="?cn=login&m=dangnhap" method="POST" >

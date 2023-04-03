@@ -12,6 +12,12 @@
 	}
 
 	function loginView(){
+		// if (isset($_SESSION['err1']) && !empty($_SESSION['err1'])) {
+		// 	unset($_SESSION['err1']);
+		// }
+		// if (isset($_SESSION['err']) && !empty($_SESSION['err'])) {
+		// 	unset($_SESSION['err']);
+		// }
 		require_once 'app/view/login/index_view.php';
 	}
 
@@ -59,6 +65,7 @@
 				}
 			}
 			else{
+				unset($_SESSION['err1']);
 				$_SESSION['err'] = $check;
 				header("Location: ?cn=login&m=index");
 			}

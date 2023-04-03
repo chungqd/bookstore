@@ -10,9 +10,10 @@ switch ($method) {
   	detailBook();
   	break;
 }
+// code chỗ này đéo ổn get hết ra 1 lúc, trường hợp nhiểu data vỡ mồm
 function listAllBook(){
 	$page = isset($_GET['page'])?$_GET['page']:1;
-  	$dataBook = get_list_all_book_model();
+  	$dataBook = get_list_all_book_model(); // xu ly doan nay bang cach viet ham count trong model
   
 	$link = createLink(BASE_URL,array("cn"=>"home", "m"=>"index","page"=>'{page}'));
 	$dataPaging = paging($link, count($dataBook),$page, ROW_LIMIT);

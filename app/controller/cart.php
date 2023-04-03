@@ -58,6 +58,7 @@
 
 				if ($flag) {
 					$chkAdd = FALSE;
+					// FALSE: insert từng sách 1 vào table
 					foreach ($_SESSION['cart'] as $k => $value) 
 					{
 						$money = ($value['qty']*$value['cost']);
@@ -159,15 +160,29 @@
 					$_SESSION['cart'][$idBook]['cost'] = ($infoBook['GiaMoi'] > 0)?$infoBook['GiaMoi']:$infoBook['GiaCu'];
 					$_SESSION['cart'][$idBook]['qty'] = $qty;
 				}
+				// TODO: doan if trong nay co the gop de bo phan else
 			}
 			else
 			{
+				// case: add sp vao gio hang tu home or detal sp khi sp chua co trong gio hang
 				$_SESSION['cart'][$idBook]['idBook']  = $infoBook['id'];
 				$_SESSION['cart'][$idBook]['nameBook'] = $infoBook['TenSach'];
 				$_SESSION['cart'][$idBook]['imageBook'] = $infoBook['HinhAnh'];
 				$_SESSION['cart'][$idBook]['cost'] = ($infoBook['GiaMoi'] > 0)?$infoBook['GiaMoi']:$infoBook['GiaCu'];
 				$_SESSION['cart'][$idBook]['qty'] = $qty;
 			}
+			// REPLACE: doan tren thay bang doan nay
+			// if (!isset($_SESSION['cart']) || !isset($_SESSION['cart'][$idBook]))
+			// {
+			// 	$_SESSION['cart'][$idBook]['idBook']  = $infoBook['id'];
+			// 	$_SESSION['cart'][$idBook]['nameBook'] = $infoBook['TenSach'];
+			// 	$_SESSION['cart'][$idBook]['imageBook'] = $infoBook['HinhAnh'];
+			// 	$_SESSION['cart'][$idBook]['cost'] = ($infoBook['GiaMoi'] > 0)?$infoBook['GiaMoi']:$infoBook['GiaCu'];
+			// 	$_SESSION['cart'][$idBook]['qty'] = $qty;
+			// }
+			// else {
+			// 	$_SESSION['cart'][$idBook]['qty'] += $qty;
+			// }
 		}
 		
 		header("Location: ?cn=cart&m=index");

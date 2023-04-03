@@ -33,7 +33,7 @@
         });
         </script>
     </head>
-    <?php ob_flush(); ?>
+    <?php //ob_flush(); ?>
     <body>
         <div class="wrapper">
             <header id="main-header">
@@ -59,7 +59,7 @@
                             </ul>
                             <div class="col-xs-12 ">
 
-                                <input id="txtSearch" class="col-md-6 col-xs-10" name="" type="text" style="" placeholder="Tìm kiếm" />
+                                <input id="txtSearch" class="col-md-6 col-xs-10" name="" type="text" placeholder="Tìm kiếm" />
 
                                 <button id="btnSearch" class="btn btn-info" type="button" style="height: 35px;"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>

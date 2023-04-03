@@ -25,7 +25,7 @@
 
     <?php if (isset($_SESSION['err1']) && !empty($_SESSION['err1'])): ?>
         <div class="row">
-            <h3><?php echo $_SESSION['err1']; ?></h3>
+            <h3 style="color: red;"><?php echo $_SESSION['err1']; ?></h3>
         </div>
     <?php endif; ?>
       <form action="?cn=login&m=dangnhap" method="POST" >
@@ -43,7 +43,7 @@
         <input type="submit" name="btnSubmit" value="Đăng nhập"/>
         <input type="reset" name="btnReset" value="reset"/>
         <br/>
-        <a href="signup.php" title="">Đăng ký</a>
+        <a href="index.php?cn=signup" title="">Đăng ký</a>
         <span>|</span>
         <a href="index.php" title="">Trang chủ</a>
       </form>

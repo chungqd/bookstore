@@ -10,7 +10,7 @@ switch ($method) {
 function getListPriceBook(){
   $idPriceBook = isset($_GET['id']) ? $_GET['id'] : 0;
   $idPriceBook = (is_numeric($idPriceBook) && in_array($idPriceBook,array('1','2','3'))) ? $idPriceBook : 0;
-  $dataPriceBook = get_list_book_by_price($idPriceBook);
+  $dataPriceBook = !empty($idPriceBook) ? get_list_book_by_price($idPriceBook) : 0;
   if(!empty($dataPriceBook)){
     require_once 'app/view/price/index_view.php';
   }else

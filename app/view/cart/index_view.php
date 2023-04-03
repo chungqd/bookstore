@@ -48,7 +48,10 @@
                     <img src="<?php echo PATH_IMG_BOOK.$cart['imageBook'] ?>" alt="">
                     </td>
                     <td class="center1"><?php echo number_format($cart['cost']); ?></td>
-                    <td class="center1" ><input class="soluong1" required pattern="[0-9]{1,3}" title="Số lượng phải là chữ số và nhỏ hơn 4 kí tự" name="txtSoLuong[<?php echo $cart['idBook']; ?>]" size="2" type="text" value="<?php echo $cart['qty']; ?>"/></td>
+                    <td class="center1" >
+                      <input class="soluong1" required pattern="[0-9]{1,3}" title="Số lượng phải là chữ số và nhỏ hơn 4 kí tự" name="txtSoLuong[<?php echo $cart['idBook']; ?>]" size="2" type="text" value="<?php echo $cart['qty']; ?>"/>
+                      <!-- <input type="hidden" name="txtIdBook" value="<?php echo $cart['idBook']; ?>"/> -->
+                    </td>
                     <td  class="center1 img_gio_hang"><?php echo number_format($cart['qty']*$cart['cost']); ?></td>
 
                     <td ><a href="?cn=cart&m=delete&id=<?php echo $cart['idBook']; ?>"> <i class="icon-trash"></i></a></td>

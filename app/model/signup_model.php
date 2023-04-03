@@ -5,27 +5,32 @@ require_once 'app/config/database.php';
 		$role = 0;
 		$status = 0;
 		$create_time = date('Y-m-d H:i:s');
-		$update_time ="";
-		$conn = connection();
-		$sql = "INSERT INTO taikhoan(TenDangNhap, MatKhau,TenHienThi, DiaChi, SDT, Email, Quyen, Trang_thai, authen_key, create_time, update_time) VALUES(:TenDangNhap, :MatKhau, :TenHienThi, :DiaChi, :SDT, :Email, :Quyen, :Trang_thai, :authen_key, :create_time, :update_time)";
-		$stmt = $conn->prepare($sql);
-		if ($stmt) {
-			$stmt->bindPARAM(":TenDangNhap",$username,PDO::PARAM_STR);
-			$stmt->bindPARAM(":MatKhau",$password,PDO::PARAM_STR);
-			$stmt->bindPARAM(":TenHienThi",$name,PDO::PARAM_STR);
-			$stmt->bindPARAM(":DiaChi",$address,PDO::PARAM_STR);
-			$stmt->bindPARAM(":SDT",$phone,PDO::PARAM_INT);
-			$stmt->bindPARAM(":Email",$email,PDO::PARAM_STR);
-			$stmt->bindPARAM(":Quyen",$role,PDO::PARAM_INT);
-			$stmt->bindPARAM(":Trang_thai",$status,PDO::PARAM_INT);
-			$stmt->bindPARAM(":authen_key",$authenkey,PDO::PARAM_STR);
-			$stmt->bindPARAM(":create_time",$create_time,PDO::PARAM_STR);
-			$stmt->bindPARAM(":update_time",$update_time,PDO::PARAM_STR);
-			if ($stmt->execute()) {
-				$flag = $conn->lastInsertId();
+		$update_time = date('Y-m-d H:i:s');
+		try {
+			$conn = connection();
+			$sql = "INSERT INTO taikhoan(TenDangNhap, MatKhau,TenHienThi, DiaChi, SDT, Email, Quyen, Trang_thai, authen_key, create_time, update_time) VALUES(:TenDangNhap, :MatKhau, :TenHienThi, :DiaChi, :SDT, :Email, :Quyen, :Trang_thai, :authen_key, :create_time, :update_time)";
+			$stmt = $conn->prepare($sql);
+			if ($stmt) {
+				$stmt->bindPARAM(":TenDangNhap",$username,PDO::PARAM_STR);
+				$stmt->bindPARAM(":MatKhau",$password,PDO::PARAM_STR);
+				$stmt->bindPARAM(":TenHienThi",$name,PDO::PARAM_STR);
+				$stmt->bindPARAM(":DiaChi",$address,PDO::PARAM_STR);
+				$stmt->bindPARAM(":SDT",$phone,PDO::PARAM_INT);
+				$stmt->bindPARAM(":Email",$email,PDO::PARAM_STR);
+				$stmt->bindPARAM(":Quyen",$role,PDO::PARAM_INT);
+				$stmt->bindPARAM(":Trang_thai",$status,PDO::PARAM_INT);
+				$stmt->bindPARAM(":authen_key",$authenkey,PDO::PARAM_STR);
+				$stmt->bindPARAM(":create_time",$create_time,PDO::PARAM_STR);
+				$stmt->bindPARAM(":update_time",$update_time,PDO::PARAM_STR);
+				if ($stmt->execute()) {
+					$flag = $conn->lastInsertId();
+				}
+				$stmt->closeCursor();
 			}
-			$stmt->closeCursor();
+		} catch(PDOException $e) {
+			echo $e->getMessage();
 		}
+		
 		disconnection($conn);
 		return $flag;
 	}

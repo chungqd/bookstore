@@ -75,7 +75,7 @@
 		}
 
 		// tính start
-		$start = ($currentPage-1)*$limit;
+		$start = !empty($totalPage) ? ($currentPage-1)*$limit : 0; // update code calc $start
 
 		// tạo template phân trang
 		$html = "<div class='text-center'>";

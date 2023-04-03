@@ -43,7 +43,7 @@
         <input type="submit" name="btnSubmit" value="Đăng nhập"/>
         <input type="reset" name="btnReset" value="reset"/>
         <br/>
-        <a href="signup.php" title="">Đăng ký</a>
+        <a href="index.php?cn=signup" title="">Đăng ký</a>
         <span>|</span>
         <a href="index.php" title="">Trang chủ</a>
       </form>

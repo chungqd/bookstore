@@ -57,7 +57,7 @@
 		$conn = connection();
 		$status = 1;
 		$create_time = date('Y-m-d H:i:s');
-		$update_time = "";
+		$update_time = date('Y-m-d H:i:s');
 		$sql = "INSERT INTO sach(TenSach, id_nxb, id_tg, status, HinhAnh, GiaCu, id_loai, SoLuong, SoTrang, create_time, update_time) VALUES (:TenSach, :id_nxb, :id_tg, :status, :HinhAnh, :GiaCu, :id_loai, :SoLuong, :SoTrang, :create_time, :update_time)";
 		$stmt = $conn->prepare($sql);
 		if ($stmt) {

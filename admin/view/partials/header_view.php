@@ -34,7 +34,7 @@
 
 
     </head>
-    <?php ob_flush(); // xóa đi dữ liệu tạm thời ?>
+    <?php // ob_flush(); // xóa đi dữ liệu tạm thời ?>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
             <header class="main-header">

@@ -57,7 +57,7 @@
 						  </div>
 						  <div class="form-group">
 						    <label for="txtGiaMoi">Giá mới</label>
-						    <input name="txtGiaMoi" type="text" class="form-control" id="txtGiaMoi" placeholder="Nhập giá sách" value="">
+						    <input name="txtGiaMoi" type="text" class="form-control" id="txtGiaMoi" placeholder="Nhập giá sách" value="<?php echo $infoBook['GiaMoi']; ?>">
 						  </div>
 						  <div class="form-group">
 						    <label for="txtQTY">Số lượng</label>

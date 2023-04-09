@@ -16,7 +16,7 @@
                 deleteBook();
                 break;
             default:
-                lisAllBooks();
+                listAllBooks();
                 break;
         }
 
@@ -30,6 +30,7 @@
             $page = isset($_GET['page'])?$_GET['page']:1;
 
             $keyword = isset($_GET['keyword'])?$_GET['keyword']:"";
+            // get all data dung de dem so luong sach
             $allDataBook = get_all_data_book_model($keyword);
 
             $link = createLink(BASE_URL, array("sk"=>"book","m"=>"index","page"=>'{page}', "keyword"=>$keyword));
@@ -164,15 +165,18 @@
                     $soluong = strip_tags($soluong);
                     $sotrang = isset($_POST['txtPageBook'])?trim($_POST['txtPageBook']):"";
                     $sotrang = strip_tags($sotrang);
+
+                    // xu ly anh
                     $hinhanh = "";
                     $hddImg = isset($_POST['hddBookFile'])?$_POST['hddBookFile']:'';
 
                     $type = 2;
-
+                    // case up anh moi
                     if (isset($_FILES['txtFile']))
                     {
                         $hinhanh = uploadFiles($_FILES,$type);
                     }
+                    // case ko up anh moi de anh cu
                     $Img = (empty($hinhanh))?$hddImg:$hinhanh;
                     $flag = TRUE;
                     $check = validate_data($nameBook, $GiaCu, $soluong, $sotrang, $Img);
@@ -255,4 +259,4 @@
             }
 
         }
-     ?>
+?>

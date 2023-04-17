@@ -31,10 +31,14 @@ function updateOrders(){
         	$dataInfo = getDataOrderById($id);
    			$dataBook = get_info_data_book_model($dataInfo['id_sach']);
     		$qty = $dataBook['SoLuong'] - $dataInfo['SoLuong'];
+
+            // case check deo du sach de ban
     		if ($qty < 0) {
     			echo 'errqty';
     		}else{
+                // update order - status = 1
 	            $update = update_orders_model($id,$type);
+                // update, calc qty book
 	    		$updateQty = updateQtyBook_model($dataInfo['id_sach'], $qty);
 	            if($update && $updateQty){
 

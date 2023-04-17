@@ -23,7 +23,7 @@
 		$flag = FALSE;
 		$conn = connection();
 		$create_time = date("Y-m-d H:i:s");
-		$update_time = "";
+		$update_time = NULL;
 		$sql = "INSERT INTO chitiethoadon(id_dh,create_time,update_time) VALUES(:id_dh,:create_time,:update_time)";
 		$stmt = $conn->prepare($sql);
 		if ($stmt) {

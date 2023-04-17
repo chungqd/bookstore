@@ -24,7 +24,7 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li>
+                        <li <?php echo ($cn == 'index')?"class='active'":""; ?>>
                             <a href="#"><i class="fa fa-home"></i>Trang chủ</a>
                         </li>
                         <li <?php echo ($cn == 'book')?"class='active'":""; ?>>

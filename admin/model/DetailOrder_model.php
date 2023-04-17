@@ -68,7 +68,7 @@
         return $data;
     }
 
-    function deleteDataDetailOrder($id, $id_hd)
+    function deleteDataDetailOrder($id)
     {
         $flag = false;
         $conn = connection();
